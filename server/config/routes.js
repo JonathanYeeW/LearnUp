@@ -1,3 +1,5 @@
+console.log("<> server <> config <> routes.js <> HERE <>")
+
 // //////////////////////////////////////////////////////////////
 //  SERVER/CONFIG/ROUTES.JS FILE
 // //////////////////////////////////////////////////////////////
@@ -14,18 +16,26 @@ const tiles = require('../controllers/tiles.js');
 module.exports = function (app) {
   // Root route - renders index.ejs view (for socket.io example):
   app.get('/', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.get('/') <>")
+    console.log("<> render index.ejs")
+    console.log("")
     response.render('index', { message: request.flash('error') });
   });
 
   app.get ('/forgetpw',(request, response) =>{
+    console.log("<> server <> config <> routes.js <> app.get('/forgetpw') <>")
+    console.log("<> render forgetpw")
+    console.log("")
     response.render('forgetpw', { message: request.flash('error') });
   })
 
   app.get('/admin/dashboard', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.get('/admin/dashboard') <>")
     if (request.session.user) {
+      //MARK: What is users.dashboard?
       users.dashboard(request, response);
     } else {
-      response.redirect('/index');
+      response.redirect('/');
     }
   });
   // Admin route - renders admin.ejs:
@@ -34,58 +44,73 @@ module.exports = function (app) {
   // });
 
   app.get('/logout', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.get('/logout') <>")
     request.session.destroy();
-    response.redirect('/index');
+    response.redirect('/');
   });
 
   // enter an individual learnup room
   app.get('/room/:id', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.get('/room/:id') <>")
     users.enterRoom(request, response);
   });
 
   app.get('/tiles', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.get('/tiles') <>")
     tiles.getTiles(request, response);
   });
 
     // Class has ended, render page with message
     app.get('/end', (request, response) => {
+      console.log("<> server <> config <> routes.js <> app.get('/end') <>")
+      console.log("<> render endOfClass")
+      console.log("")
       response.render('endOfClass');
     });  
 
   app.post('/login', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/login') <>")
     users.login(request, response);
   });
 
   // New user post route
   app.post('/new', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/new') <>")
     users.newUser(request, response);
   });
 
   app.post('/edit', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/edit') <>")
     users.editUser(request, response);
   });
 
   app.post('/promote/:id', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/promote/:id') <>")
     users.promote(request, response, 1);
   });
 
   app.post('/demote/:id', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/demote/:id') <>")
     users.promote(request, response, -1);
   });
 
   app.post('/delete/:id', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/delete/:id') <>")
     users.delete(request, response);
   });
 
   app.post('/forgetpassword', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/forgetpassword') <>")
     users.forgetpassword(request, response)
   });
 
   app.get('/reset/:token', (request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/reset/:token') <>")
     users.getUserinforgetpw(request, response)
   });
 
   app.post('/resetpw',(request, response) => {
+    console.log("<> server <> config <> routes.js <> app.post('/resetpw') <>")
     users.resetpassword(request, response)
   })
 };

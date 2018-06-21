@@ -1,3 +1,4 @@
+console.log("<> controllers <> users.js <> HERE <>")
 // //////////////////////////////////////////////////////////////////////////////////////
 //  SERVER/CONTROLLERS/CONTROLLER_NAME_PLURAL.JS FILE (CONTROLLER for a MODEL ):
 // ///////////////////////////////////////////////////////////////////////////////////////
@@ -25,18 +26,19 @@ module.exports = {
   // EXAMPLE OF A CRUD get REQUEST method:
   // https://www.npmjs.com/package/bcrypt#with-promises
   login(request, response) {
+    console.log("<> server <> controllers <> users.js <> login <>")
     User.findOne({ email: request.body.email })
       .then((result) => {
-        console.log("This is result in login", result);
+        // console.log("This is result in login", result);
         bcrypt.compare(request.body.password, result.hash)
           .then((res) => {
             if (res) {
-              console.log("went to then in login", res)
+              // console.log("went to then in login", res)
               request.session.user = request.body.email;
               response.redirect('/admin/dashboard');
             }
             else {
-              console.log('Error received on bcrypt compare, ');
+              // console.log('Error received on bcrypt compare, ');
               request.flash('error', 'Incorrect password ');
               response.redirect('/');
             }
@@ -50,10 +52,13 @@ module.exports = {
   },
 
   dashboard(request, response) {
+    console.log("<> server <> controllers <> users.js <> dashboard <>")
     User.findOne({ email: request.session.user }).then((user) => {
       User.find()
         .sort({ admin: -1 })
         .then((users) => {
+          console.log("<> render dashboard.ejs")
+          console.log("")
           response.render('dashboard', {
             user,
             users,
@@ -302,6 +307,7 @@ module.exports = {
   },
 
   resetpassword(request, response){
+    console.log("<> server <> controllers <> users.js <> resetpassword <>")
     User.findOne({ email: request.body.edituseremail })
     .then((updateUser) => {
       if (updateUser) {

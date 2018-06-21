@@ -1,3 +1,5 @@
+console.log("<> config <> dummy_users.js <> HERE <>")
+
 const users = [
   {
     email: 'learnup2017@gmail.com',

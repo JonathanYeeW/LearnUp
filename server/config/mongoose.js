@@ -1,3 +1,5 @@
+console.log("<> config <> mongoose.js <> HERE <>")
+
 // ////////////////////////////////////////////////////////////////
 //  SERVER/CONFIG/MONGOOSE.JS (DATABASE CONFIG FILE):
 // ////////////////////////////////////////////////////////////////
@@ -108,7 +110,7 @@ function addTiles(tiles) {
     crescent,
     earth,
   })
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
     .catch(error => console.log(error));
 
   Sidetwo.create({
@@ -117,7 +119,7 @@ function addTiles(tiles) {
     endingsbottom,
     roots,
   })
-    .then(data => console.log(data))
+    // .then(data => console.log(data))
     .catch(error => console.log(error));
 }
 
