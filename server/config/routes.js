@@ -50,6 +50,7 @@ module.exports = function (app) {
   });
 
   // enter an individual learnup room
+
   app.get('/room/:id', (request, response) => {
     console.log("<> server <> config <> routes.js <> app.get('/room/:id') <>")
     users.enterRoom(request, response);
@@ -113,4 +114,30 @@ module.exports = function (app) {
     console.log("<> server <> config <> routes.js <> app.post('/resetpw') <>")
     users.resetpassword(request, response)
   })
+
+  // app.get('/tiles', tiles.getTiles);
+
+  // // Class has ended, render page with message
+  // app.get('/end', (request, response) => {
+  //   response.render('endOfClass');
+  // });  
+
+  // app.post('/login', users.login);
+
+  // // New user post route
+  // app.post('/new', users.newUser);
+
+  // app.post('/edit', users.editUser);
+
+  // app.post('/promote/:id', users.promote);
+
+  // app.post('/demote/:id', users.demote);
+
+  // app.post('/delete/:id', users.delete);
+
+  // app.post('/forgetpassword', users.forgetpassword);
+
+  // app.get('/reset/:token', users.getUserinforgetpw);
+
+  // app.post('/resetpw', users.resetpassword)
 };

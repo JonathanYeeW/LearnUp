@@ -113,7 +113,7 @@ p {
   width: 70%;
   height: 15rem;
   /* border: 2px solid blue; */
-  position: relative;
+  /* position: relative; */
   top: 40px;
   text-align: center;
 
@@ -202,6 +202,7 @@ p {
 
 #roots {
   grid-column: 1/4;
+  grid-row: 1/1;
   padding-left: 5rem;
   padding-right:0; 
   width: 90%;
@@ -214,6 +215,7 @@ p {
 
 #prefixes {
   grid-column: 1/2;
+  grid-row: 2;
   width: 100%;
   height: 20rem;
   padding: 0.2rem;
@@ -221,25 +223,23 @@ p {
 
 #endingsright {
   grid-column: 3/4;
+  grid-row: 1;
   width: 100%;
   height: 20rem;
   padding: 12px;
   vertical-align: top;
   padding-top:0;
-  position: relative;
+  /* position: relative; */
   bottom: 130px;
 }
 
 #endingsbottom {
   grid-column: 1/4;
+  grid-row: -1;
   width: 100%;
   height: 5rem;
   padding-right: 10rem;
   text-align: right;
-}
-
-#sidetwo {
-  /* visibility: hidden; */
 }
 
 

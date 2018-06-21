@@ -166,7 +166,13 @@ module.exports = {
 
     return admin;
   },
-  promote(request, response, type) {
+  promote(request, response) {
+    this.changeAccessLevel(request, response, 1);
+  },
+  demote(request, response) {
+    this.changeAccessLevel(request, response, -1);
+  },
+  changeAccessLevel(request, response, type) {
     User.findOne({ email: request.session.user }).then((adminUser) => {
       User.findOne({ _id: request.params.id }).then((user) => {
         if (adminUser.admin > user.admin) {
